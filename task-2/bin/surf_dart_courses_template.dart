@@ -31,17 +31,13 @@ void main(List<String> arguments) async {
 
   // сделать звонок с мобильного телефона
   cordlessPhone.call();
-  // импровизация звонка на 15 сек.
-  await Future.delayed(Duration(seconds: 15));
   // конец звонка
-  cordlessPhone.endCall();
+  cordlessPhone.endCall(DateTime.now().add(Duration(seconds: 15)));
 
   // сделать звонок с беспроводного телефона
   cordlessPhone.call();
-  // ипровизация звонка на 40 сек.
-  await Future.delayed(Duration(seconds: 40));
   // конец звонка
-  cordlessPhone.endCall();
+  cordlessPhone.endCall(DateTime.now().add(Duration(seconds: 40)));
 
   print('Общая длительность всех звонков: '
       '${surf_dart_courses_template.Phone.totalDurationOfCall}');

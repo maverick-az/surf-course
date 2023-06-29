@@ -75,15 +75,16 @@ abstract class Phone {
   });
 
   /// Начало звонка
-  void call() {
-    _momentOfBeginningCall = DateTime.now();
+  void call([DateTime? momentOfCall]) {
+    _momentOfBeginningCall = momentOfCall ?? DateTime.now();
     print('Calling...');
   }
 
   /// Конец звонка
-  void endCall() {
-    _totalDurationOfCall +=
-        DateTime.now().difference(_momentOfBeginningCall!).inSeconds;
+  void endCall([DateTime? momentOfEndCall]) {
+    _totalDurationOfCall += (momentOfEndCall ?? DateTime.now())
+        .difference(_momentOfBeginningCall!)
+        .inSeconds;
     print('End of call');
   }
 
