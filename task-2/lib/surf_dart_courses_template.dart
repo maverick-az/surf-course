@@ -1,5 +1,5 @@
 /// Операционные системы, используемые для мобильных устройств.
-sealed class OperatingSystem {
+abstract class OperatingSystem {
   static const String android = 'Android';
   static const String fuchsia = 'Fuchsia';
   static const String ios = 'iOS';
