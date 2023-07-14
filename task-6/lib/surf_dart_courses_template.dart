@@ -46,7 +46,7 @@ class FilterProductByPriceNotHigher implements Filter<Product> {
   }
 }
 
-/// Интерфейс для реализации фильтрации товаров с остатком меньше [price]
+/// Интерфейс для реализации фильтрации товаров с остатком меньше [quantity]
 class FilterProductByQuantitySmaller implements Filter<Product> {
   final double quantity;
 
