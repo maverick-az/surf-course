@@ -23,7 +23,6 @@ void main(List<String> arguments) {
     products,
     surf_lib.FilterProductByCategory('молоко'),
   );
-  // вывод данных
   surf_lib.printProductList(filteredProductsByCategory, '\nКатегория "молоко"');
 
   // Применить фильтр по цене
@@ -31,7 +30,6 @@ void main(List<String> arguments) {
     products,
     surf_lib.FilterProductByPriceNotHigher(200),
   );
-  // вывод данных
   surf_lib.printProductList(
       filteredProductsByPrice, '\nТовары с ценой не больше 200 рублей');
 
@@ -40,7 +38,6 @@ void main(List<String> arguments) {
     products,
     surf_lib.FilterProductByQuantitySmaller(50),
   );
-  // вывод данных
   surf_lib.printProductList(
       filteredProductsByQuantity, '\nТовары с остатком меньше 50 шт');
 }
