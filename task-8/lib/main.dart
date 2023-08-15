@@ -31,10 +31,20 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _clicksOnIncrement = 0;
+  int _clicksOnDecrement = 0;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
+      _clicksOnIncrement++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      if (_counter > 0) _counter--;
+      _clicksOnDecrement++;
     });
   }
 
@@ -52,17 +62,43 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  '$_counter',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+                const SizedBox(width: 20),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('+ clicks: $_clicksOnIncrement'),
+                    Text('- clicks: $_clicksOnDecrement'),
+                  ],
+                )
+              ],
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: _decrementCounter,
+            tooltip: 'Decrement',
+            heroTag: null,
+            child: const Icon(Icons.remove),
+          ),
+          const SizedBox(width: 20),
+          FloatingActionButton(
+            onPressed: _incrementCounter,
+            tooltip: 'Increment',
+            heroTag: null,
+            child: const Icon(Icons.add),
+          ),
+        ],
       ),
     );
   }
