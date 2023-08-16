@@ -166,11 +166,11 @@ class _GestureContainerState extends State<GestureContainer>
           Positioned.fill(
             child: GestureDetector(
               onTap: () {
-                _animateRotationTransition();
-              },
-              onLongPress: () {
                 _resetRotationTransition();
                 _changeBackgroundColor();
+              },
+              onLongPress: () {
+                _animateRotationTransition();
               },
               onPanUpdate: (details) {
                 _resetRotationTransition();
