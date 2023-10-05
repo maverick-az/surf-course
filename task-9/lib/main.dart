@@ -37,11 +37,9 @@ class _GestureContainerState extends State<GestureContainer>
   final _draggableWidgetSize = const Size(150, 150);
 
   // Позиция виджета для перетаскивания по оси x
-  late double _posX =
-      MediaQuery.of(context).size.width / 2 - _draggableWidgetSize.width / 2;
+  late double _posX;
   // Позиция виджета для перетаскивания по оси y
-  late double _posY =
-      MediaQuery.of(context).size.height / 2 - _draggableWidgetSize.height;
+  late double _posY;
 
   // Список цветов фона
   final _backgroundColors = <Color>[
@@ -71,6 +69,15 @@ class _GestureContainerState extends State<GestureContainer>
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _posX =
+        MediaQuery.of(context).size.width / 2 - _draggableWidgetSize.width / 2;
+    _posY =
+        MediaQuery.of(context).size.height / 2 - _draggableWidgetSize.height;
+  }
+
+  @override
   void dispose() {
     super.dispose();
     _animationController.dispose();
@@ -90,12 +97,8 @@ class _GestureContainerState extends State<GestureContainer>
   }
 
   void _changePositionOnScreen(DragUpdateDetails details) {
-    final renderDraggableObj =
-        _widgetDraggableKey.currentContext?.findRenderObject() as RenderBox;
-
-    final sizeDraggableObj = renderDraggableObj.size;
+    final sizeDraggableObj = _draggableWidgetSize;
     final sizeScreen = MediaQuery.of(context).size;
-
     // Высота системного нижнего меню
     late double sysBottomNavHeight = MediaQuery.of(context).padding.top;
 
