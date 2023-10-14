@@ -12,12 +12,14 @@ You can describe your results in any language that is convenient for you, not ju
 
 ## Problems
 
-[Describe the problems you encountered]
+Были проблемы со структурированием проекта.<br>
+Если можно описать, как вы структурируете проект в своей организации, или дать какие-то ресурсы, где это хорошо описано, было бы здорово.
 
 ## More
 
-[Here you can brag about what you managed to implement or do something beyond the task]
+Установил пакет **flutter_svg**
 
 ## Demo
 
-[Leave links to screencasts/screenshots here, you can use a GitHub repository or a separate cloud service]
+[profile_screen.webm](https://github.com/maverick-az/surf-course/assets/7722321/ab6caf94-b07e-4b4f-92df-371f02661725)
+
